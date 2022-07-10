@@ -13,3 +13,8 @@ To install the project use command `yarn install`
 `yarn run start` - runs the project production server (use this command after the build command)
 `yarn run validate` - runs all checks (prettier, eslint, stylelint, tsc)
 `yarn run test` - runs project tests
+
+## Deployment
+
+The project is deployed on Vercel and you can see it on
+<https://drg-sample.vercel.app/>
