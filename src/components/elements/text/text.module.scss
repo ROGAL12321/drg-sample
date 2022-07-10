@@ -1,0 +1,64 @@
+.h1 {
+  @include font($font-xxl, $font-semibold, $line-height-small);
+
+  @media (min-width: rem(768px)) {
+    font-size: $font-xxxl;
+  }
+}
+
+.h2 {
+  @include font($font-xl, $font-semibold, $line-height-medium);
+
+  @media (min-width: rem(768px)) {
+    font-size: $font-xxl;
+  }
+}
+
+.h3 {
+  @include font($font-m, $font-semibold, $line-height-medium);
+
+  @media (min-width: rem(768px)) {
+    font-size: $font-l;
+  }
+}
+
+.h4 {
+  @include font($font-s, $font-semibold, $line-height-big);
+
+  &__thin {
+    @include font($font-s, $font-regular, $line-height-big, $font-secondary);
+  }
+}
+
+.h5 {
+  @include font($font-xs, $font-bold, $line-height-big);
+
+  &__semi {
+    @include font($font-xs, $font-bold, $line-height-medium, $font-secondary);
+  }
+
+  &__thin {
+    @include font($font-xs, $font-regular, $line-height-big, $font-secondary);
+  }
+}
+
+.h6 {
+  @include font($font-xxs, $font-bold, $line-height-big, _, uppercase);
+
+  &__thin {
+    @include font(
+      $font-xxs,
+      $font-semibold,
+      $line-height-small,
+      $font-secondary
+    );
+  }
+}
+
+.quote {
+  @include font($font-m, $font-regular, $line-height-big);
+
+  @media (min-width: rem(768px)) {
+    font-size: $font-xl;
+  }
+}
