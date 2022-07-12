@@ -1,35 +1,24 @@
-import React from 'react';
 import clsx from 'clsx';
-
-import { Arrow, SliderArrow } from '@/components/elements/icons';
 
 import styles from './button.module.scss';
 
-interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'arrow' | 'slider';
-  as?: 'button' | 'a' | React.ElementType;
-  className?: string;
-  href?: string;
-  children?: React.ReactNode;
+interface ButtonProps extends ComponentProps {
+  variant?: 'primary' | 'secondary';
+  type?: 'button' | 'submit';
 }
 
-function Button(props: ButtonProps, ref: React.ForwardedRef<HTMLElement>) {
-  const { variant = 'primary', as: Component = 'button', className, children, href } = props;
+export default function Button(props: ButtonProps) {
+  const { variant = 'primary', type = 'button', className, children } = props;
+
   const buttonClasses: string = clsx(styles.button, {
     [styles.primary]: variant === 'primary',
     [styles.secondary]: variant === 'secondary',
-    [styles.arrow]: variant === 'arrow',
-    [styles.slider]: variant === 'slider',
     [className]: className,
   });
 
   return (
-    <Component className={buttonClasses} href={href} ref={ref}>
+    <button type={type} className={buttonClasses}>
       {children}
-      {variant === 'arrow' && <Arrow styles={styles} />}
-      {variant === 'slider' && <SliderArrow styles={styles} />}
-    </Component>
+    </button>
   );
 }
-
-export default React.forwardRef(Button);

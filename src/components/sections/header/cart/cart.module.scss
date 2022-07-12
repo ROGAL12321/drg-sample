@@ -1,0 +1,16 @@
+.cart {
+  position: relative;
+  cursor: pointer;
+}
+
+.orders {
+  font-size: $font-xxxs;
+  width: 17px;
+  height: 17px;
+  background: $primary-color;
+  color: $secondary-color;
+  font-weight: $font-bold;
+  position: absolute;
+  bottom: -3px;
+  right: -10px;
+}

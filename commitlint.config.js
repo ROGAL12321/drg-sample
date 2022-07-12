@@ -17,71 +17,64 @@ module.exports = {
   parserPreset: {
     parserOpts: {
       headerPattern: new RegExp(
-        "^" +
-          capturingGroupOptionalTicket.source +
-          capturingGroupType.source +
-          capturingGroupSubject.source +
-          "$"
+        '^' + capturingGroupOptionalTicket.source + capturingGroupType.source + capturingGroupSubject.source + '$',
       ),
-      headerCorrespondence: ["ticket", "type", "subject"],
+      headerCorrespondence: ['ticket', 'type', 'subject'],
     },
   },
 
   plugins: [
     {
       rules: {
-        "header-match-pattern": (parsed) => {
+        'header-match-pattern': parsed => {
           const { type, subject } = parsed;
 
           if (type === null && subject === null)
-            return [
-              false,
-              "commit message must be in format '[ABC-123] type: subject'",
-            ];
+            return [false, "commit message must be in format '[ABC-123] type: subject'"];
 
-          return [true, ""];
+          return [true, ''];
         },
 
-        "check-ticket": (parsed) => {
+        'check-ticket': parsed => {
           const { ticket } = parsed;
 
-          if (ticket === null) return [false, "you should add a ticket number"];
+          if (ticket === null) return [false, 'you should add a ticket number'];
 
-          return [true, ""];
+          return [true, ''];
         },
 
-        "check-type": (parsed, _when, expectedValues) => {
+        'check-type': (parsed, _when, expectedValues) => {
           const { type } = parsed;
 
-          if (type && !Object.keys(expectedValues).includes(type.split(":")[0]))
+          if (type && !Object.keys(expectedValues).includes(type.split(':')[0]))
             return [
               false,
               `commit message must be in format '[ABC-123] type: subject'\ntype must be one of:\n${Object.keys(
-                expectedValues
+                expectedValues,
               )
-                .map((type) => `${type} - ${expectedValues[type]}`)
-                .join("\n")}`,
+                .map(type => `${type} - ${expectedValues[type]}`)
+                .join('\n')}`,
             ];
 
-          return [true, ""];
+          return [true, ''];
         },
       },
     },
   ],
 
   rules: {
-    "header-match-pattern": [2, "always"],
-    "check-ticket": [1, "always"],
-    "check-type": [
+    'header-match-pattern': [2, 'always'],
+    'check-ticket': [1, 'always'],
+    'check-type': [
       2,
-      "always",
+      'always',
       {
-        feat: "add a new feature to your application",
-        chore: "tool, configuration changes, linters",
-        fix: "bug fix",
-        docs: "documentation update",
-        refactor: "code changes, no new features added",
-        test: "add / update tests",
+        feat: 'add a new feature to your application',
+        chore: 'tool, configuration changes, linters',
+        fix: 'bug fix',
+        docs: 'documentation update',
+        refactor: 'code changes, no new features added',
+        test: 'add / update tests',
       },
     ],
   },

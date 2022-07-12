@@ -3,12 +3,12 @@ const nextConfig = {
 };
 
 module.exports = (phase, { defaultConfig }) => {
-  if ("sassOptions" in defaultConfig) {
-    defaultConfig["sassOptions"] = {
-      includePaths: ["./src"],
+  if ('sassOptions' in defaultConfig)
+    defaultConfig['sassOptions'] = {
+      includePaths: ['./src'],
       prependData: `@import "src/base/styles/_base.scss";`,
     };
-  }
+
   return {
     ...defaultConfig,
     ...nextConfig,
