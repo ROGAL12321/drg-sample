@@ -1,12 +1,12 @@
-import Home from '@/pages/home';
+import HomePage from '@/pages';
 import { render, screen } from '@testing-library/react';
 
 describe('Home', () => {
   it('renders a heading', () => {
-    render(<Home />);
+    render(<HomePage />);
 
     const heading = screen.getByRole('heading', {
-      name: /Ecommerce demo/i,
+      name: /Next.JS Code Sample/i,
     });
 
     expect(heading).toBeInTheDocument();

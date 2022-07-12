@@ -1,3 +1,8 @@
-export type StaticPagePath = {
-  params: { slug: string[] | false };
-};
+import React from 'react';
+
+declare global {
+  interface ComponentProps {
+    className?: string;
+    children?: React.ReactNode;
+  }
+}

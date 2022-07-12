@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import Header from '@/components/layouts/header';
-import styles from '@/base/styles/home.module.css';
+import MainLayout from '@/components/layouts/main';
 
 export default function Home() {
   return (
@@ -8,12 +7,9 @@ export default function Home() {
       <Head>
         <title>Ecommerce demo</title>
       </Head>
-
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <Header />
-        </div>
-      </main>
+      <MainLayout>
+        <p>Text</p>
+      </MainLayout>
     </>
   );
 }

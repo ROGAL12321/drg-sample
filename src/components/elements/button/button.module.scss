@@ -1,118 +1,29 @@
 .button {
   outline: none;
   cursor: pointer;
-  position: relative;
-  padding: rem(16px) rem(48px);
-  border: 0;
+  padding: rem(12px) rem(36px);
   display: block;
-  background: $primary-100;
-  color: $white;
-  font-family: $font-secondary;
-  font-weight: $font-semibold;
+  font-weight: $font-regular;
   font-size: $font-xs;
-  text-decoration: none;
-  transition: background, color 0.5s ease;
+  text-transform: uppercase;
 }
 
 .primary {
-  &::before {
-    content: "";
-    position: absolute;
-    width: calc(100% + 3px);
-    height: calc(100% + 1px);
-    background: $primary-120;
-    top: 50%;
-    left: 50%;
-    z-index: -1;
-    transform: translate(calc(-50% - 10.5px), calc(-50% + 8.5px));
-    transition: all 0.5s ease;
-  }
+  border: 3px solid $primary-color;
+  background: $primary-color;
+  color: $secondary-color;
 
   &:hover {
-    background: $primary-120;
-
-    &::before {
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  &:focus {
-    box-shadow: inset 0 0 0 3px $primary-60;
-
-    &::before {
-      transform: translate(-50%, -50%);
-    }
+    background: color.adjust($primary-color, $lightness: 20%);
+    border: 3px solid color.adjust($primary-color, $lightness: 20%);
   }
 }
 
 .secondary {
-  box-shadow: inset 0 0 0 2px $primary-100;
-  background: transparent;
-  color: $primary-100;
+  border: 3px solid $primary-color;
+  background-color: $secondary-color;
 
   &:hover {
-    background: $primary-100;
-    color: $white;
-  }
-
-  &:focus {
-    box-shadow: inset 0 0 0 3px $primary-60;
-  }
-}
-
-.arrow {
-  position: relative;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  background: transparent;
-  color: $primary-100;
-
-  .arrow-svg {
-    position: absolute;
-    width: auto;
-    height: auto;
-    top: 50%;
-    left: calc(100% + 19px);
-    transform: translateY(-50%);
-
-    .arrow-path {
-      transition: all 0.5s ease;
-    }
-  }
-
-  &:hover {
-    color: $primary-120;
-  }
-
-  &:hover,
-  &:focus {
-    .arrow-path {
-      d: path("M67.5 1L74.5 8M74.5 8L67.5 15M74.5 8H1");
-    }
-  }
-}
-
-.slider {
-  width: rem(56px);
-  height: rem(56px);
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $border;
-  transition: all 0.5s ease;
-
-  .slider-arrow-path {
-    stroke: $secondary-100;
-  }
-
-  &:hover,
-  &:focus {
-    background: $secondary-100;
-
-    .slider-arrow-path {
-      stroke: $white;
-    }
+    background: color.adjust($secondary-color, $lightness: -5%);
   }
 }
