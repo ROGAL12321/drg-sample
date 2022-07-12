@@ -6,7 +6,7 @@ module.exports = (phase, { defaultConfig }) => {
   if ('sassOptions' in defaultConfig)
     defaultConfig['sassOptions'] = {
       includePaths: ['./src'],
-      prependData: `@import "src/base/styles/_base.scss";`,
+      prependData: `@use "sass:color"; @import "src/base/styles/_base.scss";`,
     };
 
   return {
